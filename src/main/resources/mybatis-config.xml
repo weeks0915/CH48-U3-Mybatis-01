@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!--属性-->
+	<properties>
+		<property name="mysql.driver" value="com.mysql.jdbc.Driver"/>
+		<property name="mysql.url" value="jdbc:mysql://localhost:3306/WG5556"/>
+		<property name="mysql.username" value="root"/>
+		<property name="mysql.password" value="root"/>
+	</properties>
+	<!--配置环境-->
+	<!--配置数据源的环境-->
+	<!--连接数据库-->
+
+	<typeAliases>
+		<!--<typeAlias type="com.weeks.entity.Userinfo" alias="Userinfo"></typeAlias>-->
+	    <package name="com.weeks.entity"/>
+	</typeAliases>
+
+	<environments default="dev">
+		<environment id="dev">
+			<!--
+				transaction：事务
+				Manager:管理
+				事务管理器、DBUtils
+			-->
+			<transactionManager type="JDBC"></transactionManager>
+			<!--数据源/连接池-->
+			<dataSource type="POOLED">
+				<!--
+				url=jdbc:mysql://localhost:3306/wg5556
+				driver=com.mysql.jdbc.Driver
+				username=root
+				password=root
+				-->
+				<property name="driver" value="${mysql.driver}"/>
+				<property name="url" value="${mysql.url}"/>
+				<property name="username" value="${mysql.username}"/>
+				<property name="password" value="${mysql.password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!--mybatis映射文件配置-->
+	<mappers>
+		<!--<mapper resource="mappers/UserinfoMapper.xml"></mapper>-->
+		<package name="com.weeks.dao"/>
+	</mappers>
+</configuration>

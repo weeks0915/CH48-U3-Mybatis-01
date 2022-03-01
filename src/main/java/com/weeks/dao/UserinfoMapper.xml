@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	mapper:映射
+		namespace：命名空间==接口类的全类限定名=com.yeahsir.dao.UserinfoMapper
+-->
+<mapper namespace="com.weeks.dao.UserinfoMapper">
+	<!--
+		select:查询
+			id:唯一标识符，接口类中方法的对应名称
+			resultType:结果 类型
+	-->
+	<select id="getUserinfoAll" resultType="Userinfo">
+		select * from userinfo
+	</select>
+</mapper>
